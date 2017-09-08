@@ -1,0 +1,61 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Angular4 Forms</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<form  #form="ngForm" novalidate>
+    <div class="form-group">
+        <label for="firstname">FirstName</label>
+        <input id="firstname" type="text" placeholder="name" name="firstname" ngModel class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="lastname">LastName</label>
+        <input id="lastname" type="text" placeholder="name" name="lastname" ngModel class="form-control">
+    </div>
+    <div class="checkbox">
+        <label></label>
+        <input type="checkbox" name="emp_type" ngModel> Full Time
+    </div>
+    <label>Payment Type</label>
+    <div class="radio">
+        <label>
+            <input type="radio" name="pay-type" value="cash" checked>
+            Cash
+        </label>
+         <label>
+            <input type="radio" name="pay-type" value="Card">
+            Card
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Language</label>
+        <select class="form-control">
+            <option *ngFor="let plang of lang">
+                {{plang}}
+            </option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+
+{{form.pristine}}
