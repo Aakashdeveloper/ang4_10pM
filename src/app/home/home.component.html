@@ -25,37 +25,40 @@
 <form  #form="ngForm" novalidate>
     <div class="form-group">
         <label for="firstname">FirstName</label>
-        <input id="firstname" type="text" placeholder="name" name="firstname" ngModel class="form-control">
+        <input id="firstname" type="text" placeholder="name" name="firstName" class="form-control"
+        [ngModel]="model.firstName" (ngModelChange)='firstNameToUpperCase($event)'>
     </div>
     <div class="form-group">
         <label for="lastname">LastName</label>
-        <input id="lastname" type="text" placeholder="name" name="lastname" ngModel class="form-control">
+        <input id="lastname" type="text" placeholder="name" name="lastName" [(ngModel)]="model.lastName" class="form-control">
     </div>
     <div class="checkbox">
         <label></label>
-        <input type="checkbox" name="emp_type" ngModel> Full Time
+        <input type="checkbox" name="emp_type" [(ngModel)]="model.emp_type"> Full Time
     </div>
     <label>Payment Type</label>
     <div class="radio">
         <label>
-            <input type="radio" name="pay-type" value="cash" checked>
+            <input type="radio" name="pay_type" value="cash" checked [(ngModel)]="model.pay_type">
             Cash
         </label>
          <label>
-            <input type="radio" name="pay-type" value="Card">
+            <input type="radio" name="pay_type" value="Card" [(ngModel)]="model.pay_type">
             Card
         </label>
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
         <label>Language</label>
         <select class="form-control">
             <option *ngFor="let plang of lang">
                 {{plang}}
             </option>
         </select>
-    </div>
+    </div>-->
     <button class="btn btn-primary" type="submit">Submit</button>
 </form>
 
-
-{{form.pristine}}
+Model: {{model | json}}
+<br>
+Angular4: {{form.value | json}}
+<!--{{form.pristine}}-->
