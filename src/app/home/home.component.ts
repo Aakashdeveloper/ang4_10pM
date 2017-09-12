@@ -8,7 +8,7 @@ import {Employee} from '../models/employee.model'
 })
 export class HomeComponent {
   lang =["Java","Python","Javascript"];
-  model = new Employee('Aakash', 'handa',true);
+  model = new Employee('Aakash','handa',true,'cash',"python",9643018019);
 
   firstNameToUpperCase(value: string){
     if(value.length>0)
